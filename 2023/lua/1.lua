@@ -1,16 +1,3 @@
----@param haystack table
----@param needle string
----@return boolean
-local function in_array(needle, haystack)
-    local num_needle = tonumber(needle)
-    for digit, _ in pairs(haystack) do
-        if num_needle == digit then
-            return true
-        end
-    end
-    return false
-end
-
 local digits = {
     "one",
     "two",
