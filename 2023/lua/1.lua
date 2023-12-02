@@ -56,7 +56,9 @@ for line in io.lines("../input/1") do
     local match = nil
 
     local open_look_ups = {}
-    for i = 1, #line do
+    local i = 1
+
+    while i <= #line do
         local c = string.sub(line, i, i)
         local new_open_look_ups = {}
 
@@ -69,7 +71,7 @@ for line in io.lines("../input/1") do
                         first = match
                     end
                     last = match
-                    goto continue
+                    break
                 else
                     table.insert(new_open_look_ups, match)
                 end
@@ -89,7 +91,8 @@ for line in io.lines("../input/1") do
                 table.insert(open_look_ups, match)
             end
         end
-        ::continue::
+
+        i = i + 1
     end
 
     print(line, tonumber(first .. last))
